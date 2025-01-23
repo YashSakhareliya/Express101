@@ -2,3 +2,8 @@ GET || /contact || 2025-01-23T10:24:11.022Z
 GET || /products || 2025-01-23T10:24:18.097Z 
 GET || /products || 2025-01-23T10:24:19.709Z 
 GET || /image.webp || 2025-01-23T10:26:02.466Z 
+GET || /access/image.webp || 2025-01-23T10:28:46.291Z 
+GET || /access || 2025-01-23T10:29:34.352Z 
+GET || /access || 2025-01-23T10:29:50.254Z 
+GET || /access/image.webp || 2025-01-23T10:30:02.654Z 
+GET || /access/image.webp || 2025-01-23T10:30:16.411Z 

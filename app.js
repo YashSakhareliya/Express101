@@ -19,7 +19,7 @@ app.use((req, res, next)=>{
     next()
 })
 
-app.use(express.static('assets'))
+app.use("/access",express.static('public'))
 
 app.get('/about', (req,res)=>{
     res.send('h3>We are a premium skincare brand committed to bringing you dermatologist-approved, clean beauty products</h3>')
