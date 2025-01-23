@@ -1,8 +1,18 @@
 import express from 'express';
 import fs from 'fs';
+import { rateLimit } from 'express-rate-limit'
+
 const PORT = process.env.PORT || 5000
 
 const app = express();
+
+const limit = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 5,
+    message: "your limits exceeded"
+})
+
+app.use(limit)
 
 // Middleware to process JSON requests
 app.use(express.json());
@@ -10,7 +20,7 @@ app.use(express.json());
 // for undefined routs middleware
 app.use((req, res) =>{
     console.log(`undefined route hit: ${req.method} ${req.path}`);
-    res.status(404).send('sorry, this route does not exist');
+    res.status(404).send("We don't have this page yet!");
 })
 
 app.use((req, res, next)=>{
