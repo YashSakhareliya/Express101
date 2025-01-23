@@ -4,6 +4,9 @@ const PORT = process.env.PORT || 5000
 
 const app = express();
 
+// Middleware to process JSON requests
+app.use(express.json());
+
 app.get('/', (req,res)=>{
     res.send('Welcome to GlowDerma - Your Skincare Journey Begins Here');
 })
@@ -35,7 +38,26 @@ let items = [
   ]
 app.get('/products', (req,res)=>{
     
-    res.send(JSON.stringify(items));    
+    res.send(items);    
+})
+
+app.post('/products', (req,res)=>{
+    console.log(req.body);
+    const {name, price, description} = req.body;
+ 
+    if(!name ||!price ||!description){
+        return res.status(400).json({
+            "error": "All fields are required"
+        });
+    }
+    const newItem = {
+        name,
+        price,
+        description
+    }
+    items.push(newItem);
+
+    res.status(201).json(newItem);
 })
 
 app.get('*', (req, res)=>{
