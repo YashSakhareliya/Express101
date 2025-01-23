@@ -7,8 +7,10 @@ const app = express();
 // Middleware to process JSON requests
 app.use(express.json());
 
-app.get('/', (req,res)=>{
-    res.send('Welcome to GlowDerma - Your Skincare Journey Begins Here');
+// for undefined routs middleware
+app.use((req, res) =>{
+    console.log(`undefined route hit: ${req.method} ${req.path}`);
+    res.status(404).send('sorry, this route does not exist');
 })
 
 app.use((req, res, next)=>{
@@ -19,7 +21,11 @@ app.use((req, res, next)=>{
     next()
 })
 
-app.use("/access",express.static('public'))
+app.use("/assets",express.static('public'))
+
+app.get('/', (req,res)=>{
+    res.send('Welcome to GlowDerma - Your Skincare Journey Begins Here');
+})
 
 app.get('/about', (req,res)=>{
     res.send('h3>We are a premium skincare brand committed to bringing you dermatologist-approved, clean beauty products</h3>')
