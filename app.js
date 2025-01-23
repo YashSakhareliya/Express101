@@ -1,5 +1,5 @@
 import express from 'express';
-
+import fs from 'fs';
 const PORT = process.env.PORT || 5000
 
 const app = express();
@@ -9,6 +9,14 @@ app.use(express.json());
 
 app.get('/', (req,res)=>{
     res.send('Welcome to GlowDerma - Your Skincare Journey Begins Here');
+})
+
+app.use((req, res, next)=>{
+    let logData = `${req.method} || ${req.path} || ${new Date().toISOString()} \n`;
+    fs.appendFile('log.txt',logData, (err)=>{
+        if(err) console.error(err);
+    })
+    next()
 })
 
 app.get('/about', (req,res)=>{
@@ -129,6 +137,12 @@ app.post('/cart', (req,res)=>{
 app.get('*', (req, res)=>{
     res.status(404).json({
         "error": "Route not found"
+      })
+})
+
+app.use((error, req, res)=>{
+    res.status(500).json({
+        "error": error.message
       })
 })
 
