@@ -13,7 +13,7 @@ const limit = rateLimit({
     message: "your limits exceeded"
 })
 
-app.use(limit)
+// app.use(limit)
 
 // set the view engine to handlebars
 app.set('view engine', 'hbs');

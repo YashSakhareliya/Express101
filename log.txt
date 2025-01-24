@@ -16,3 +16,10 @@ GET || /new || 2025-01-24T07:11:14.286Z
 GET || /favicon.ico || 2025-01-24T07:11:15.213Z 
 GET || /docter || 2025-01-24T07:13:10.936Z 
 GET || /doctors || 2025-01-24T07:13:27.508Z 
+GET || /docters || 2025-01-24T07:19:53.139Z 
+GET || /doctors || 2025-01-24T07:20:23.122Z 
+GET || /services || 2025-01-24T07:21:45.411Z 
+GET || /book-appointment || 2025-01-24T07:22:47.576Z 
+POST || /book-appointment || 2025-01-24T07:25:18.659Z 
+GET || /offerings || 2025-01-24T07:25:52.433Z 
+GET || /testimonials || 2025-01-24T07:26:55.105Z 
