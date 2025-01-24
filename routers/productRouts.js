@@ -1,6 +1,6 @@
 import express from "express";
 
-const router = express.router();
+const router = express.Router();
 
 
 let products = [
@@ -10,7 +10,7 @@ let products = [
   { id: 15, name: "Glycolic Acid Toner", price: 900, availableQty: 20 }
 ]
 
-router.get('/products', (req,res)=>{
+router.get('/', (req,res)=>{
     const {name, maxPrice} = req.body;
     if(!name && !maxPrice ){
         return res.status(200).json(products);

@@ -5,6 +5,7 @@ import hbs from 'hbs';
 
 import mainRouts from './routers/mainRouts.js'
 import productRouts from './routers/productRouts.js'
+import ordersRouts from './routers/ordersRouts.js'
 
 const PORT = process.env.PORT || 5000
 
@@ -39,6 +40,12 @@ app.use((req, res, next)=>{
 app.use("/assets",express.static('public'))
 
 
+
+// Routs 
+
+app.use('/',mainRouts)
+app.use('/products', productRouts)
+app.use('/orders', ordersRouts)
 
 app.get('/new',(req,res)=>{
     console.log(`Welcome to GlowDerma - Your Skincare`)
@@ -118,8 +125,6 @@ app.get('/testimonials', (req, res) => {
 });
 
 
-app.use('/',mainRouts)
-app.use('/order', productRouts)
 
 
 let shoppingCart = []

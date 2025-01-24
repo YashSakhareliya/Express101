@@ -1,6 +1,6 @@
 import express from "express";
 
-const router = express.router();
+const router = express.Router();
 
 let orders = [
     { id: 1, product: 'Anti-Aging Serum', quantity: 2 },
@@ -21,4 +21,4 @@ router.get('/:orderID', (req,res)=>{
     res.status(200).json(order);
 })
 
-module.exports = router
+export default router;
