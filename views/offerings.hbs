@@ -1,0 +1,16 @@
+<h2>{{title}}</h2>
+<div class="offerings">
+    {{#each offerings}}
+    <div class="offering-card {{#unless available}}unavailable{{/unless}}">
+        <h3>{{name}}</h3>
+        <p><strong>Price:</strong> ₹{{price}}</p>
+        <p><strong>Duration:</strong> {{duration}}</p>
+        <p>{{description}}</p>
+        {{#if available}}
+        <p class="available">Available</p>
+        {{else}}
+        <p class="unavailable">Unavailable</p>
+        {{/if}}
+    </div>
+    {{/each}}
+</div>

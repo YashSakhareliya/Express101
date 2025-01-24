@@ -10,3 +10,9 @@ GET || /access/image.webp || 2025-01-23T10:30:16.411Z
 GET || /public/static_file_demo.png || 2025-01-23T10:41:33.134Z 
 GET || /assets/static_file_demo.png || 2025-01-23T10:41:42.934Z 
 GET || /assets/static_file_demo.png || 2025-01-23T10:41:56.637Z 
+GET || /new || 2025-01-24T06:10:29.630Z 
+GET || /new || 2025-01-24T06:11:02.375Z 
+GET || /new || 2025-01-24T07:11:14.286Z 
+GET || /favicon.ico || 2025-01-24T07:11:15.213Z 
+GET || /docter || 2025-01-24T07:13:10.936Z 
+GET || /doctors || 2025-01-24T07:13:27.508Z 
