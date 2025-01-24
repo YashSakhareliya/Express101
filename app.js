@@ -3,6 +3,8 @@ import fs from 'fs';
 import { rateLimit } from 'express-rate-limit'
 import hbs from 'hbs';
 
+import mainRouts from './routers/mainRouts.js'
+
 const PORT = process.env.PORT || 5000
 
 const app = express();
@@ -35,9 +37,7 @@ app.use((req, res, next)=>{
 
 app.use("/assets",express.static('public'))
 
-app.get('/', (req,res)=>{
-    res.send('Welcome to GlowDerma - Your Skincare Journey Begins Here');
-})
+
 
 app.get('/new',(req,res)=>{
     console.log(`Welcome to GlowDerma - Your Skincare`)
@@ -117,19 +117,8 @@ app.get('/testimonials', (req, res) => {
 });
 
 
-app.get('/about', (req,res)=>{
-    res.send('h3>We are a premium skincare brand committed to bringing you dermatologist-approved, clean beauty products</h3>')
-});
+app.use('/',mainRouts)
 
-const contactDetails = {
-    "email": "care@glowderma.com",
-    "instagram": "http://instagram.com/glowderma",
-    "consultation": "http://glowderma.com/book-appointment"
-}
-
-app.get('/contact', (req,res)=>{
-    res.send(contactDetails);
-})
 
 
 let orders = [
