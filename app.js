@@ -6,6 +6,7 @@ import hbs from 'hbs';
 import mainRouts from './routers/mainRouts.js'
 import productRouts from './routers/productRouts.js'
 import ordersRouts from './routers/ordersRouts.js'
+import cartRouts from './routers/cartRouts.js'
 
 const PORT = process.env.PORT || 5000
 
@@ -46,6 +47,7 @@ app.use("/assets",express.static('public'))
 app.use('/',mainRouts)
 app.use('/products', productRouts)
 app.use('/orders', ordersRouts)
+app.use('/cart', cartRouts)
 
 app.get('/new',(req,res)=>{
     console.log(`Welcome to GlowDerma - Your Skincare`)
@@ -127,35 +129,12 @@ app.get('/testimonials', (req, res) => {
 
 
 
-let shoppingCart = []
-app.get('/cart', (req,res)=>{
-    res.status(200).json(shoppingCart);
-})
 
-app.post('/cart', (req,res)=>{
-    const {id, name, price} = req.body;
- 
-    if(!name ||!price ||!id){
-        return res.status(400).json({
-            "error": "All fields are required"
-        });
-    }
-    const newItem = {
-        id,
-        name,
-        price
-    }
-    shoppingCart.push(newItem);
-
-    res.status(201).json(newItem);
-
-})
-
-app.get('*', (req, res)=>{
-    res.status(404).json({
-        "error": "Route not found"
-      })
-})
+// app.get('*', (req, res)=>{
+//     res.status(404).json({
+//         "error": "Route not found"
+//       })
+// })
 
 app.use((error, req, res)=>{
     res.status(500).json({
