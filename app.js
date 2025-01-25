@@ -13,11 +13,7 @@ const PORT = process.env.PORT || 5000
 
 const app = express();
 
-const limit = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 5,
-    message: "your limits exceeded"
-})
+const limit = rateLimit()
 
 // app.use(limit)
 
